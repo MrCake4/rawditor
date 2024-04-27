@@ -1,0 +1,116 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  background: #fff;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+#hue {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    red,
+    yellow,
+    green,
+    blue,
+    red
+  ); /* Gradient from blue to white */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+#saturation {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, white, #ff6f00);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+#red {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    white,
+    red
+  ); /* Gradient from blue to white */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+#green {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    white,
+    green
+  ); /* Gradient from blue to white */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+#blue {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    white,
+    blue
+  ); /* Gradient from blue to white */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
