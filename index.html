@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Winston John Reichelt" />
+    <link
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="./scripts/main.js" type="module" defer></script>
+    <script src="./scripts/keybindings.js" type="module"></script>
+    <script src="./scripts/Sliders.js" type="module"></script>
+    <script src="./scripts/filters.js" type="module"></script>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/sliders.css" />
+
+    <title>RAWDITOR</title>
+  </head>
+  <body>
+    <header>
+      <h1
+        id="title"
+        style="
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        "
+      >
+        RAWDITOR
+      </h1>
+      <p id="subtitle">at the core of photo-editing</p>
+    </header>
+    <main>
+      <div class="editor">
+        <div class="editor-image-container">
+          <div class="status-container" id="status-container">
+            <h2>Upload Image</h2>
+            <input type="file" id="file" onchange="null" />
+          </div>
+          <img id="sourceImage" crossorigin="anonymous" style="display: none" />
+          <canvas id="canvas"></canvas>
+        </div>
+        <div class="controlls">
+          <div class="tools">
+            <h3>Filters</h3>
+            <div class="tool-container">
+              <label for="contrast">Contrast</label>
+              <input
+                type="range"
+                id="contrast"
+                name="contrast"
+                min="0"
+                max="200"
+                value="100"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="saturation">Saturation</label>
+              <input
+                type="range"
+                id="saturation"
+                name="contrast"
+                min="0"
+                max="200"
+                value="100"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="brightness">Brightness</label>
+              <input
+                type="range"
+                id="brightness"
+                name="contrast"
+                min="0"
+                max="200"
+                value="100"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="hue" id="hueLabel">HUE</label>
+              <input
+                type="range"
+                id="hue"
+                name="contrast"
+                min="0"
+                max="360"
+                value="0"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="blur" id="hueLabel">Blur</label>
+              <input
+                type="range"
+                id="blur"
+                name="contrast"
+                min="0"
+                max="100"
+                value="0"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="sepia">Sepia</label>
+              <input
+                type="range"
+                id="sepia"
+                name="sepia"
+                min="0"
+                max="100"
+                value="0"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="inversion">Inversion</label>
+              <button id="completeInversionBtn">
+                <i class="fa-solid fa-shuffle"></i>
+              </button>
+              <input
+                type="range"
+                id="inversion"
+                name="inversion"
+                min="0"
+                max="100"
+                value="0"
+              />
+            </div>
+            <h3>RGB-Values</h3>
+            <div class="tool-container">
+              <label for="red" style="color: red">Red</label>
+              <input
+                type="range"
+                id="red"
+                name="inversion"
+                min="0"
+                max="255"
+                value="0"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="green" style="color: green">Green</label>
+              <input
+                type="range"
+                id="green"
+                name="inversion"
+                min="0"
+                max="255"
+                value="0"
+              />
+            </div>
+            <div class="tool-container">
+              <label for="blue" style="color: blue">Blue</label>
+              <input
+                type="range"
+                id="blue"
+                class="blue-slider"
+                name="inversion"
+                min="0"
+                max="255"
+                value="0"
+              />
+            </div>
+            <h3>Effects / Image-Filters</h3>
+            <button id="vhsFilterBtn">VHS</button>
+            <button id="vintageFilterBtn">Vintage</button>
+          </div>
+          <a id="link"></a>
+          <div class="image-controlls-container">
+            <button id="saveImageBtn" onclick="saveImage()">
+              <i class="fa-solid fa-download" style="color: #000000"></i>
+            </button>
+            <button id="resetImageBtn">
+              <i class="fa-solid fa-x" style="color: #000000"></i>
+            </button>
+            <button id="refrence" onclick="showRefrence()">
+              <i
+                class="fa-solid fa-arrow-down-up-across-line"
+                style="color: #000000"
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
