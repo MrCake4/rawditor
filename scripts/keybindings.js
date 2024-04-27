@@ -1,10 +1,11 @@
 import * as main from "./main.js";
+import * as filters from "./filters.js";
 
 // Keybindings
 export default function initKeyBindings() {
   document.addEventListener("keydown", function (event) {
     if (event.key === "i" || event.key === "I") {
-      main.invert();
+      filters.invert();
     }
     if (event.key === "s" || event.key === "S") {
       main.saveImage();
@@ -13,7 +14,7 @@ export default function initKeyBindings() {
       main.resetImage();
     }
     if (event.key === "v" || event.key === "V") {
-      main.applyVHSFilter();
+      filters.applyVHSFilter();
     }
   });
 }
