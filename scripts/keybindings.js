@@ -1,5 +1,6 @@
 import * as main from "./main.js";
 import * as filters from "./filters.js";
+import updateVectorscope from "./vectorscope.js";
 
 // Keybindings
 export default function initKeyBindings() {
@@ -15,6 +16,10 @@ export default function initKeyBindings() {
     }
     if (event.key === "v" || event.key === "V") {
       filters.applyVHSFilter();
+    }
+    if (event.key === "b" || event.key === "B") {
+      console.log("VectorScope updated");
+      updateVectorscope();
     }
   });
 }

@@ -82,7 +82,7 @@ main {
 
 .editor {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -102,7 +102,15 @@ main {
   border-radius: 10px;
   margin-bottom: 0;
   padding-bottom: 0;
-  height: 50%;
+  height: 70%;
+}
+
+.additional-tools-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #000;
+  border-radius: 5px;
 }
 
 .controlls {

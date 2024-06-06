@@ -17,11 +17,18 @@ const vhsFilterBtn = document.getElementById("vhsFilterBtn");
 const vintageFilterBtn = document.getElementById("vintageFilterBtn");
 const showRefrenceBtn = document.getElementById("refrence");
 const resetImageBtn = document.getElementById("resetImageBtn");
+const invertBtn = document.getElementById("completeInversionBtn");
+const pixelSortBtn = document.getElementById("pixelSortBtn");
+const imgErrorBtn = document.getElementById("imgErrorBtn");
+pixelSortBtn.addEventListener("change", filters.pixelSort);
 
 vhsFilterBtn.addEventListener("click", filters.applyVHSFilter);
 vintageFilterBtn.addEventListener("click", filters.applyVintageFilter);
+pixelSortBtn.addEventListener("click", filters.pixelSort);
 showRefrenceBtn.addEventListener("click", showRefrence);
 resetImageBtn.addEventListener("click", resetImage);
+invertBtn.addEventListener("click", filters.invert);
+imgErrorBtn.addEventListener("click", filters.imageError);
 
 let imageUpload = false;
 let inversion = 0;
@@ -76,6 +83,7 @@ sliders.hueSlider.addEventListener("input", function () {
 sliders.redSlider.addEventListener("input", filters.applyFilter);
 sliders.greenSlider.addEventListener("input", filters.applyFilter);
 sliders.blueSlider.addEventListener("input", filters.applyFilter);
+sliders.noiseSlider.addEventListener("input", filters.applyNoise);
 
 export function saveImage() {
   if (!imageUpload) {
