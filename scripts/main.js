@@ -17,11 +17,25 @@ const vhsFilterBtn = document.getElementById("vhsFilterBtn");
 const vintageFilterBtn = document.getElementById("vintageFilterBtn");
 const showRefrenceBtn = document.getElementById("refrence");
 const resetImageBtn = document.getElementById("resetImageBtn");
+const invertBtn = document.getElementById("completeInversionBtn");
+const pixelSortBtn = document.getElementById("pixelSortBtn");
+const imgErrorBtn = document.getElementById("imgErrorBtn");
+const twentiesHorrorFilmBtn = document.getElementById(
+  "twentiesHorrorFilterBtn"
+);
+pixelSortBtn.addEventListener("change", filters.pixelSort);
 
-vhsFilterBtn.addEventListener("click", applyVHSFilter);
-vintageFilterBtn.addEventListener("click", applyVintageFilter);
+vhsFilterBtn.addEventListener("click", filters.applyVHSFilter);
+vintageFilterBtn.addEventListener("click", filters.applyVintageFilter);
+pixelSortBtn.addEventListener("click", filters.pixelSort);
 showRefrenceBtn.addEventListener("click", showRefrence);
 resetImageBtn.addEventListener("click", resetImage);
+invertBtn.addEventListener("click", filters.invert);
+imgErrorBtn.addEventListener("click", filters.imageError);
+twentiesHorrorFilmBtn.addEventListener(
+  "click",
+  filters.applyTwentiesHorrorFilter
+);
 
 let imageUpload = false;
 let inversion = 0;
@@ -42,92 +56,8 @@ function uploadImage(event) {
   };
 }
 
-export function invert() {
-  switch (inversion) {
-    case 0:
-      inversion = 100;
-      inversionSlider.value = 100;
-      break;
-    case 100:
-      inversion = 0;
-      inversionSlider.value = 0;
-      break;
-  }
-
-  let filterString =
-    "brightness(" +
-    brightnessSlider.value +
-    "%" +
-    ") contrast(" +
-    contrastSlider.value +
-    "%" +
-    ") saturate(" +
-    saturationSlider.value +
-    "%" +
-    ") invert(" +
-    inversion +
-    "%" +
-    ") hue-rotate(" +
-    hueSlider.value +
-    "deg" +
-    ")";
-
-  ctx.filter = filterString;
-
-  ctx.drawImage(image, 0, 0);
-}
-
-export function applyVHSFilter() {
-  let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  let data = imageData.data;
-
-  // Apply scanlines
-  for (let y = 0; y < canvas.height; y += 2) {
-    for (let x = 0; x < canvas.width; x++) {
-      let i = (y * canvas.width + x) * 4;
-      data[i] = 0; // Set red channel to black
-      data[i + 1] = 0; // Set green channel to black
-      data[i + 2] = 0; // Set blue channel to black
-      data[i + 3] = 100; // Set opacity to control the strength of scanlines
-    }
-  }
-
-  // Apply color shift
-  for (let i = 0; i < data.length; i += 4) {
-    // Example: shift red channel to the right
-    data[i] = data[i + 4]; // Red
-    data[i + 4] = 0; // Set next pixel's red channel to black
-  }
-
-  // Apply noise
-  for (let i = 0; i < data.length; i += 4) {
-    // Add random noise to each channel
-    let noise = Math.random() * 50; // Adjust noise intensity as needed
-    data[i] += noise; // Red
-    data[i + 1] += noise; // Green
-    data[i + 2] += noise; // Blue
-  }
-
-  ctx.putImageData(imageData, 0, 0);
-}
-
-function applyVintageFilter() {
-  sliders.saturationSlider.value = 100;
-  sliders.brightnessSlider.value = 100;
-  sliders.contrastSlider.value = 100;
-  sliders.hueSlider.value = 0;
-  sliders.inversionSlider.value = 0;
-  sliders.sepiaSlider.value = 100;
-  sliders.blurSlider.value = 1;
-  sliders.redSlider.value = 10;
-
-  inversion = 0;
-
-  filters.applyFilter();
-}
-
 function updateHueLabelColor() {
-  let hueValue = hueSlider.value;
+  let hueValue = sliders.hueSlider.value;
 
   hueLabel.style.color = `hsl(${hueValue}, 100%, 50%)`;
 
@@ -160,6 +90,7 @@ sliders.hueSlider.addEventListener("input", function () {
 sliders.redSlider.addEventListener("input", filters.applyFilter);
 sliders.greenSlider.addEventListener("input", filters.applyFilter);
 sliders.blueSlider.addEventListener("input", filters.applyFilter);
+sliders.noiseSlider.addEventListener("input", filters.applyNoise);
 
 export function saveImage() {
   if (!imageUpload) {
@@ -184,17 +115,17 @@ export function resetImage() {
   if (!imageUpload) {
     return;
   }
-  saturationSlider.value = 100;
-  brightnessSlider.value = 100;
-  contrastSlider.value = 100;
-  hueSlider.value = 0;
-  inversionSlider.value = 0;
-  sepiaSlider.value = 0;
-  blurSlider.value = 0;
+  sliders.saturationSlider.value = 100;
+  sliders.brightnessSlider.value = 100;
+  sliders.contrastSlider.value = 100;
+  sliders.hueSlider.value = 0;
+  sliders.inversionSlider.value = 0;
+  sliders.sepiaSlider.value = 0;
+  sliders.blurSlider.value = 0;
 
-  redSlider.value = 0;
-  greenSlider.value = 0;
-  blueSlider.value = 0;
+  sliders.redSlider.value = 0;
+  sliders.greenSlider.value = 0;
+  sliders.blueSlider.value = 0;
 
   inversion = 0;
 

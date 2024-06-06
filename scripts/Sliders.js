@@ -10,5 +10,6 @@ export default class Sliders {
     this.redSlider = document.getElementById("red");
     this.greenSlider = document.getElementById("green");
     this.blueSlider = document.getElementById("blue");
+    this.noiseSlider = document.getElementById("noise");
   }
 }
