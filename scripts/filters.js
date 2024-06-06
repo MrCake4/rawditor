@@ -286,6 +286,16 @@ function applyVintageFilter() {
   applyFilter();
 }
 
+function applyTwentiesHorrorFilter() {
+  sliders.contrastSlider.value = 120;
+  sliders.inversionSlider.value = 0;
+  sliders.sepiaSlider.value = 100;
+  sliders.greenSlider.value = 5;
+
+  //inversion = 0;
+  applyFilter();
+}
+
 /* IDEA
   20s horror film filter
   contrast 80
@@ -301,4 +311,5 @@ export {
   applyNoise,
   pixelSort,
   imageError,
+  applyTwentiesHorrorFilter,
 };

@@ -20,6 +20,9 @@ const resetImageBtn = document.getElementById("resetImageBtn");
 const invertBtn = document.getElementById("completeInversionBtn");
 const pixelSortBtn = document.getElementById("pixelSortBtn");
 const imgErrorBtn = document.getElementById("imgErrorBtn");
+const twentiesHorrorFilmBtn = document.getElementById(
+  "twentiesHorrorFilterBtn"
+);
 pixelSortBtn.addEventListener("change", filters.pixelSort);
 
 vhsFilterBtn.addEventListener("click", filters.applyVHSFilter);
@@ -29,6 +32,10 @@ showRefrenceBtn.addEventListener("click", showRefrence);
 resetImageBtn.addEventListener("click", resetImage);
 invertBtn.addEventListener("click", filters.invert);
 imgErrorBtn.addEventListener("click", filters.imageError);
+twentiesHorrorFilmBtn.addEventListener(
+  "click",
+  filters.applyTwentiesHorrorFilter
+);
 
 let imageUpload = false;
 let inversion = 0;

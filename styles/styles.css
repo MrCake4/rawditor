@@ -156,6 +156,19 @@ main {
   pointer-events: none; /* Ensure the percentage element doesn't interfere with slider interaction */
 }
 
+.effects-filters-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: space-around;
+  width: 40%;
+}
+
+.effects-filters-container:nth-child(n) {
+  padding: 1rem;
+}
+
 .image-controlls-container {
   display: flex;
   flex-flow: row nowrap;

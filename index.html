@@ -172,18 +172,26 @@
                 value="0"
               />
             </div>
-            <h3>Effects / Image-Filters</h3>
-            <button id="vhsFilterBtn">VHS</button>
-            <button id="vintageFilterBtn">Vintage</button>
-            <button id="pixelSortBtn">PixelSort</button>
-            <input
-              type="range"
-              id="treshholdSlider"
-              min="0"
-              max="255"
-              value="128"
-            />
-            <button id="imgErrorBtn">ImageError</button>
+            <div class="effects-filters-container">
+              <h3>Effects / Image-Filters</h3>
+              <button id="vhsFilterBtn">VHS</button>
+              <button id="vintageFilterBtn">Vintage</button>
+              <div class="pixelsort-container">
+                <button id="pixelSortBtn">PixelSort</button>
+                <div class="tool-container">
+                  <label for="treshholdSlider">Treshhold</label>
+                  <input
+                    type="range"
+                    id="treshholdSlider"
+                    min="0"
+                    max="255"
+                    value="128"
+                  />
+                </div>
+              </div>
+              <button id="imgErrorBtn">ImageError</button>
+              <button id="twentiesHorrorFilterBtn">Twenties Horror Film</button>
+            </div>
           </div>
           <a id="link"></a>
           <div class="image-controlls-container">
