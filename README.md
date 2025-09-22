@@ -1,6 +1,8 @@
 # rawditor
 A little side-project of mine. The rawditor is a JavaScript photo-editor.  
 
+<img width="1907" height="1079" alt="image" src="https://github.com/user-attachments/assets/699791fb-17b4-4736-8390-ec0b234b7578" />
+
 # Key Features
 - Essential photo editing tools (brightness, contrast, saturation, hue, etc.)
 - Experimental effects like pixel sorting and glitch-style filters
